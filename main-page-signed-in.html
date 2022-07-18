@@ -1,0 +1,189 @@
+<!--   DASIGAN, OBJERO, PINEDA, SUZUKI
+       BSIT 3-2
+       PASAHEROES, MAIN PAGE   -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Main page</title>
+    <link rel="stylesheet" href="main page.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+    <div class="top">
+        <img src="Tokensph logo no bg no outline no title.png" alt="Logo" />
+        <h1> <a href="main page signed in.html">TOKENS.PH</a></h1>
+        <h2>Venture the world of cryptocurrency with us!</h2>
+        <button class="button-2"> <a href="setting-logout.html">ACCOUNT</a></button>
+    </div>
+
+    <div class="below_top">
+        <button class="button-3"> <a href="about signed in.html">ABOUT</a></button>
+        <button class="button-4"> <a href="destinations signed in.html">BUY CRYPTO</a></button>
+        <button class="button-5"> <a href="schedule signed in.html">TRADE</a></button>
+        <button class="button-6"> <a href="reviews signed in.html">TUTORIALS</a></button>
+        <button class="button-7"> <a href="contact signed in.html">HELP DESK</a></button>
+    </div>
+
+    <div class="inputs">
+        <form action="main page.php" method="post">
+            <br /><label class="cryptoconverter">Cryptocurrency Converter</label><br />
+            <br /><label class="crypto1">Cryptocurrency 1:</label><br />
+            <div class="dropdown">
+                <select class="select" name="dropdown" id="dropdown" onchange="populate(this.id,'dropdown1'); calculate()">
+                    <option disabled=disabled selected=selected>Choose Currency</option>
+                    <option value="cubao">Bitcoin</option>
+                    <option value="baguio">Ethereum</option>
+                    <option value="bulacan">XRP</option>
+                    <option value="batangas">USDT</option>
+                    <option value="ilocos">SLP</option>
+                    <option value="la union">SOL</option>
+                    <option value="pampanga">SHIB</option>
+                    <option value="zambales">BCH</option>
+                </select>
+            </div>
+
+            <br /><label class="crypto2">Cryptocurrency 2:</label><br />
+            <div class="dropdown">
+                <select class="select" name="dropdown1" id="dropdown1" onchange="calculate()">
+                    <option disabled=disabled selected=selected>Choose Currency</option>
+                    <option value="cubao">Bitcoin</option>
+                    <option value="baguio">Ethereum</option>
+                    <option value="bulacan">XRP</option>
+                    <option value="batangas">USDT</option>
+                    <option value="ilocos">SLP</option>
+                    <option value="la union">SOL</option>
+                    <option value="pampanga">SHIB</option>
+                    <option value="zambales">BCH</option>
+                </select>
+            </div>
+
+            <br /><label class="amount">AMOUNT</label><br />
+            <input type="number" placeholder="0.00 PHP" required=required />
+
+            <div class="input_buttons">
+                <button type="reset">CLEAR</button>
+                <button type="submit"><a href="output.html">CONVERT</a></button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function calculate() {
+            var total = 0.00
+            var drop = document.getElementById('dropdown');
+            var drop1 = document.getElementById('dropdown1');
+            var value = dropdown.options[dropdown.selectedIndex].value;
+            var value1 = dropdown1.options[dropdown1.selectedIndex].value;
+
+            if (value == "Bitcoin" && value1 == "XRP") {
+                total = 170.00;
+            }
+            else if (value == "Bitcoin" && value1 == "Ethereum") {
+                total = 550.00;
+            }
+            else if (value == "Bitcoin" && value1 == "USDT") {
+                total = 260.00;
+            }
+            else if (value == "Bitcoin" && value1 == "SLP") {
+                total = 750.00;
+            }
+            else if (value == "Bitcoin" && value1 == "SOL") {
+                total = 650.00;
+            }
+            else if (value == "Bitcoin" && value1 == "SHIB") {
+                total = 450.00;
+            }
+            else if (value == "Bitcoin" && value1 == "BCH") {
+                total = 450.00;
+            }
+            else if (value1 == "Bitcoin" && value == "XRP") {
+                total = 170.00;
+            }
+            else if (value1 == "Bitcoin" && value == "Ethereum") {
+                total = 550.00;
+            }
+            else if (value1 == "Bitcoin" && value == "USDT") {
+                total = 260.00;
+            }
+            else if (value1 == "Bitcoin" && value == "SLP") {
+                total = 750.00;
+            }
+            else if (value1 == "Bitcoin" && value == "SOL") {
+                total = 650.00;
+            }
+            else if (value1 == "Bitcoin" && value == "SHIB") {
+                total = 450.00;
+            }
+            else if (value1 == "Bitcoin" && value == "BCH") {
+                total = 450.00;
+            }
+
+            document.getElementById('fare').value = total.toFixed(2) + " PHP";
+        }
+
+    </script>
+
+    <script>
+        function populate(s1, s2) {
+            var s1 = document.getElementById(s1);
+            var s2 = document.getElementById(s2);
+
+            s2.innerHTML = "";
+
+            if (s1.value == "Bitcoin") {
+                var optionArray = ['USDT|USDT', 'Ethereum|Ethereum', 'XRP|XRP', 'SLP|SLP', 'SOL|SOL', 'SHIB|SHIB', 'BCH|BCH',];
+            }
+            else if (s1.value == "XRP") {
+                var optionArray = ['Bitcoin|Bitcoin'];
+            }
+            else if (s1.value == "USDT") {
+                var optionArray = ['Bitcoin|Bitcoin'];
+            }
+            else if (s1.value == "Ethereum") {
+                var optionArray = ['Bitcoin|Bitcoin'];
+            }
+            else if (s1.value == "SOL") {
+                var optionArray = ['Bitcoin|Bitcoin'];
+            }
+            else if (s1.value == "SLP") {
+                var optionArray = ['Bitcoin|Bitcoin'];
+            }
+            else if (s1.value == "SHIB") {
+                var optionArray = ['Bitcoin|Bitcoin'];
+            }
+            else if (s1.value == "BCH") {
+                var optionArray = ['Bitcoin|Bitcoin'];
+            }
+
+            for (var option in optionArray) {
+                var pair = optionArray[option].split("|");
+                var newoption = document.createElement("option");
+
+                newoption.value = pair[0];
+                newoption.innerHTML = pair[1];
+                s2.options.add(newoption);
+            }
+        }
+    </script>
+
+    <script>
+        function money_amount() {
+            var price = parseInt(document.getElementById('fare').value);
+            var count = parseInt(document.getElementById('passengerCount').value);
+            var input_amount = parseInt(document.getElementById('amount').value);
+
+            var tot_amount = price * count;
+
+            if (input_amount < tot_amount) {
+                alert("INSUFFICIENT MONEY AMOUNT");
+                document.getElementById('amount').value = "";
+            }
+        }
+    </script>
+
+</body>
+       </html>

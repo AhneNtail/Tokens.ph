@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Buy Crypto</title>
+<link rel = "icon" href = "Tokensph logo no bg no outline no title.png" type = "image/x-icon">
+<link rel="stylesheet" href="Buycrypto.css">
+<link rel="stylesheet" href="main page.css">
+</head>
+       
+<body>
+ 	<div class="top">
+    	<img src="Tokensph logo no bg no outline no title.png" alt="Logo" />
+      	<h1> <a href="main page signed in.html">TOKENS.PH</a></h1>
+    	<h2>Venture the world of cryptocurrency with us!</h2>
+       	<button class="button-2"> <a href="setting-logout.html">ACCOUNT</a></button>
+
+  	</div>
+
+   	<div class="below_top">
+     	<button class="button-3"> <a href="about signed in.html">ABOUT</a></button>
+     	<button class="button-4"> <a href="Buycrypto signed in.html">BUY CRYPTO</a></button>
+     	<button class="button-5"> <a href="Trade signed in.html">TRADE</a></button>
+     	<button class="button-6"> <a href="Tutorials signed in.html">TUTORIALS</a></button>
+      	<button class="button-7"> <a href="contact signed in.html">HELP DESK</a></button>
+   	</div>
+	
+	<div class="inputs">
+		<form action="main page.php" method="post">
+			<br /><label class="cryptoconverter">Buy Cryptocurrency</label><br />
+            <br /><label class="crypto1">Cryptocurrency 1:</label><br />
+            <div class="dropdown">
+         		<select class="select" name="dropdown" id="dropdown" onchange="populate(this.id,'dropdown1'); calculate()">
+            		<option disabled=disabled selected=selected>Choose Currency</option>
+					<option value="Bitcoin">Bitcoin</option>
+					<option value="Ethereum">Ethereum</option>
+					<option value="XRP">XRP</option>
+					<option value="USDT">USDT</option>
+					<option value="SLP">SLP</option>
+					<option value="SOL">SOL</option>
+					<option value="SHIB">SHIB</option>
+					<option value="BCH">BCH</option>
+             	</select>
+           	</div>
+
+          	<br /><label class="crypto2">Cryptocurrency 2:</label><br />
+           	<div class="dropdown">
+              	<select class="select" name="dropdown1" id="dropdown1" onchange="calculate()">
+                   	<option disabled=disabled selected=selected>Choose Currency</option>
+					<option value="Bitcoin">Bitcoin</option>
+					<option value="Ethereum">Ethereum</option>
+					<option value="XRP">XRP</option>
+					<option value="USDT">USDT</option>
+					<option value="SLP">SLP</option>
+					<option value="SOL">SOL</option>
+					<option value="SHIB">SHIB</option>
+					<option value="BCH">BCH</option>
+               	</select>
+          	</div>
+
+			<br /><label class="amount">Amount in PHP</label><br />
+			<input id="fare" placeholder="0.00 PHP" required=required />
+
+        	<div class="input_buttons">
+              	<button type="reset">CLEAR</button>
+             	<!-- <button type="submit"><a href="output.html">CONVERT</a></button> -->
+				<button onclick="myFunction()"><a href="Trade signed in.html">BUY</a></button>
+				<script>
+				function myFunction() {
+				  alert("YOU HAVE SUCCESSFULLY BUY A CRYPTOCURRENCY\nPress OK to continue...");
+				}
+				</script>
+         	</div>
+       	</form>
+  	</div>
+	
+	<script>
+       	function populate(s1,s2){
+          	var s1 = document.getElementById(s1);
+           	var s2 = document.getElementById(s2);
+
+            s2.innerHTML = "";
+
+            if (s1.value == "Bitcoin")
+			{
+                var optionArray = ['USDT|USDT', 'Ethereum|Ethereum', 'XRP|XRP', 'SLP|SLP', 'SOL|SOL', 'SHIB|SHIB', 'BCH|BCH', ];
+			}
+            else if (s1.value =="XRP")
+			{
+                var optionArray = ['USDT|USDT', 'Bitcoin|Bitcoin', 'Ethereum|Ethereum', 'SLP|SLP', 'SOL|SOL', 'SHIB|SHIB', 'BCH|BCH', ];
+			}
+            else if (s1.value =="USDT")
+			{
+                var optionArray = ['Bitcoin|Bitcoin', 'Ethereum|Ethereum', 'XRP|XRP', 'SLP|SLP', 'SOL|SOL', 'SHIB|SHIB', 'BCH|BCH', ];
+			}
+            else if (s1.value =="Ethereum")
+			{
+                var optionArray = ['Bitcoin|Bitcoin', 'USDT|USDT', 'XRP|XRP', 'SLP|SLP', 'SOL|SOL', 'SHIB|SHIB', 'BCH|BCH', ];
+			}
+            else if (s1.value =="SOL")
+			{
+                var optionArray = ['Bitcoin|Bitcoin', 'USDT|USDT', 'Ethereum|Ethereum', 'XRP|XRP', 'SLP|SLP', 'SHIB|SHIB', 'BCH|BCH', ];
+			}
+            else if (s1.value =="SLP")
+			{
+                var optionArray = ['Bitcoin|Bitcoin', 'USDT|USDT', 'Ethereum|Ethereum', 'XRP|XRP', 'SOL|SOL', 'SHIB|SHIB', 'BCH|BCH', ];
+			}
+            else if (s1.value =="SHIB")
+			{
+                var optionArray = ['Bitcoin|Bitcoin', 'USDT|USDT', 'Ethereum|Ethereum', 'XRP|XRP', 'SLP|SLP', 'SOL|SOL', 'BCH|BCH', ];  
+			}
+            else if (s1.value =="BCH")
+			{
+                var optionArray = ['Bitcoin|Bitcoin', 'USDT|USDT', 'Ethereum|Ethereum', 'XRP|XRP', 'SLP|SLP', 'SOL|SOL', 'SHIB|SHIB', ];
+			}
+
+           	for(var option in optionArray)
+			{
+             	var pair = optionArray[option].split("|");
+             	var newoption = document.createElement("option");
+
+               	newoption.value = pair[0];
+              	newoption.innerHTML = pair[1];
+               	s2.options.add(newoption);
+          	}
+       	}
+	</script>
+	
+</body>
+</html>
+       
